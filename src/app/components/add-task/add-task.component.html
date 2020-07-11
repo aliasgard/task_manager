@@ -1,0 +1,32 @@
+<div>
+  <h1 mat-dialog-title>{{title}}</h1>
+  <div mat-dialog-content>
+    <div mat-dialog-content>
+      <div>No: </div>
+      <input type="number" #no (change)="textChange()" step="1" min="1" max="9999"/>
+    </div>
+    <div class="input-container">
+        <div>Description: </div>
+        <input type="text" #description (keyup)="textChange()"/>
+    </div>
+    <div class="input-container">
+      <div>Priority: </div>
+      <select #priority>
+        <option id="low">Low</option>
+        <option id="medium">Medium</option>
+        <option id="high">High</option>
+      </select>
+    </div>
+    <div class="input-container">
+      <div>Status: </div>
+      <select #status>
+        <option id="notstarted">Not Started</option>
+        <option id="active">Active</option>
+      </select>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button color="warn" (click)="onCancelClick()" [mat-dialog-close]="taskObj">Cancel</button>
+    <button mat-raised-button color="warn" (click)="onOKClick()" [disabled]="okDisable" [mat-dialog-close]="taskObj">Ok</button>
+  </div>
+</div>
